@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'egyptianNights';
+    src: url('#{$asset_url}/fonts/egyptianNights.ttf');
+}
+
+#testdiv {
+    font-family: 'egyptianNights';
+	color: $theme-dark-orange;
+}
