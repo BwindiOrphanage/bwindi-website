@@ -4,8 +4,8 @@ email: 8076bgorman@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
     Bwindi Community Orphans and Vulnerable Centre Project.
 baseurl: "/bwindi-website" # the subpath of your site, e.g. /blog/
-url: "http://bwindicommunityorphansv.com" # the base hostname & protocol for your site
-asseturl: "http://bwindicommunityorphansv.com/bwindi-website/assets"
+url: "http://bwindiorphanage.github.io" # the base hostname & protocol for your site
+asseturl: "http://bwindiorphanage.github.io/bwindi-webiste/assets"
 github_username: BwindiOrphanage
 
 # Build settings
