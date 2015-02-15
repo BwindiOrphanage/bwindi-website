@@ -1,0 +1,11 @@
+#slideshow li {
+    list-style-type: none;
+}
+
+#slideshow img {
+    width: 320px;
+    height: 240px;
+    padding: 10px;
+    border: 1px solid $theme-dark;
+    background-color: $theme-dark-orange;
+}

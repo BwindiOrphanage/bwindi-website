@@ -1,5 +1,37 @@
 ---
 layout: default
+slideshowImages:
+    - school.jpg
+    - boy1.jpg
+    - boy2.jpg
+    - boy3.jpg
+    - boy4.jpg
+    - boy5.jpg
+    - boy6.jpg
+    - boy7.jpg
+    - boy8.jpg
+    - boy9.jpg
+    - boy10.jpg
+    - boy11.jpg
+    - boy12.jpg
+    - boy13.jpg
+    - girl1.jpg
+    - girl2.jpg
+    - girl3.jpg
+    - girl4.jpg
+    - girl5.jpg
+    - girl6.jpg
+    - girl7.jpg
+    - girl8.jpg
+    - girl9.jpg
+    - motherandson.jpg
+    - boy_next_to_sign.jpg
+    - children1.jpg
+    - drawing.jpg
+    - woman1.jpg
+    - woman2.jpg
+    - village1.jpg
+    - school.jpg
 ---
 
 <div class="home">
@@ -7,10 +39,24 @@ layout: default
 	<div class="row">
 		<div class="six columns">
 			<h1>Welcome</h1>
-			<p>We are Bwindi Community Orphans and Vulnerable Care Centre.</p>
+			<p>We are Bwindi Community Orphans and Vulnerable Centre.</p>
+            <p> We to provide the best education, shelter and health facilities to the orphans and the vulnerable people we care for. We have a Christian ethos and hope to display the love of God to everyone who comes through our doors.</p>
 		</div>
 		<div class="six columns">
-			<img src="{{ site.asseturl }}/images/school.jpg" alt="school">
+            <ul id="slideshow">
+                {% for image in page.slideshowImages %}
+                <li><img src="{{ site.asseturl }}/images/{{ image }}"></li>
+                {% endfor %}
+            </ul>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    console.log("starting slideshow...");
+                    $('#slideshow').cycle({
+                        fx: 'fade',
+                        random: true
+                    })
+                });
+            </script>
 		</div>
 	</div>
 </div>

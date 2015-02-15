@@ -79,6 +79,12 @@ h1 {
 	background-size: auto 50px;
 }
 
+.img-frame {
+    padding: 5px;
+    background: $theme-white;
+    border: 1px solid $theme-dark;
+}
+
 /**
  * Site footer
  */
