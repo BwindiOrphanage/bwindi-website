@@ -5,7 +5,7 @@ description: > # this means to ignore newlines until "baseurl:"
     Bwindi Community Orphans and Vulnerable Centre Project.
 baseurl: "/bwindi-website" # the subpath of your site, e.g. /blog/
 url: "http://bwindicommunityorphansv.com" # the base hostname & protocol for your site
-asseturl: "http://bwindicommunityorphansv.com/bwindi-website/assets"
+asseturl: "http://bwindicommunityorphansv.com/assets"
 github_username: BwindiOrphanage
 
 # Build settings
