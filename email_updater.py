@@ -2,17 +2,11 @@
 import gmail
 import sys
 import re
-import subprocess
-
-if not subprocess.call("git diff-files --quiet --ignore-submodules", shell=True):
-    # There are unstaged git changes so don't proceed
-    print("There are unstaged changes in the git repo. Auto updater will not proceed.")
-    sys.exit(0)
 
 # Emails with this subject line will be added to the website
 SUBJECT_LINE_TRIGGER = "bwindi-blog-post"
-POSTS_DIRECTORY_PATH = "../_posts"
-DEBUG = True
+POSTS_DIRECTORY_PATH = "_posts"
+DEBUG = False
 
 if len(sys.argv) < 3:
     print("Usage: email_update USERNAME PASSWORD")
@@ -74,9 +68,5 @@ for email in emails:
         newPostFile = open(filePath, 'w')
         newPostFile.write(newPost)
         print("Wrote new post to: " + filePath)
-
-subprocess.call("git add .", shell=True)
-subprocess.call('git commit -m "AUTOMATED: add new blog posts."', shell=True)
-subprocess.call('git push origin master', shell=True)
 
 g.logout()

@@ -1,36 +1,14 @@
 #!/bin/bash
-require_clean_work_tree () {
-    git rev-parse --verify HEAD >/dev/null || exit 1
-    git update-index -q --ignore-submodules --refresh
-    err=0
-
-    if ! git diff-files --quiet --ignore-submodules
-    then
-        echo >&2 "Cannot $1: You have unstaged changes."
-        err=1
-    fi
-
-    if ! git diff-index --cached --quiet --ignore-submodules HEAD --
-    then
-        if [ $err = 0 ]
-        then
-            echo >&2 "Cannot $1: Your index contains uncommitted changes."
-        else
-            echo >&2 "Additionally, your index contains uncommitted changes."
-        fi
-        err=1
-    fi
-
-    if [ $err = 1 ]
-    then
-        test -n "$2" && echo >&2 "$2"
-        exit 1
-    fi
-}
-
-if [ require_clean_work_tree ]
-then
-    echo "Work tree is clean"
+if git diff-index --quiet HEAD --; then
+    # no changes
+    echo "No local changes in repo... Continuing."
+    python2 email_updater.py $GMAIL_USERNAME $GMAIL_PASSWORD
+    git add .
+    git commit -m "AUTOMATED: Adding new blog post files."
+    git push origin master
+    exit 0
 else
-    echo "Work tree is not clean"
+    # changes
+    echo "Changes present in repo, not continuing."
+    exit 1
 fi
