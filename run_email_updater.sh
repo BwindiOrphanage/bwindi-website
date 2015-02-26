@@ -6,7 +6,7 @@ if git diff-index --quiet HEAD --; then
     git add .
     git commit -m "AUTOMATED: Adding new blog post files."
     git push origin gh-pages
-    if [ $? -eq 0 ];
+    if [ $? -eq 0 ]; then
         echo "Commit successful."
         exit 0
     else
