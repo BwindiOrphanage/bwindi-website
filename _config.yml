@@ -11,5 +11,7 @@ twitter_username: bwindicomm
 facebook_pagename: bwindicomm 
 facebook_pageurl: https://www.facebook.com/pages/Bwindi-Community-Orphans-and-Vulnerable-Centre/730778287035274
 
+exclude: ["email_updater.py"]
+
 # Build settings
 markdown: kramdown
