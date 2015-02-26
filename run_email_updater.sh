@@ -8,6 +8,7 @@ if git diff-index --quiet HEAD --; then
         echo "python script successful."
     else
         echo "python script not successful. Exiting."
+        exit 1
     fi
 
     git add .
