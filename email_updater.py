@@ -20,19 +20,19 @@ try:
     print("Logged in to gmail account")
 except:
     print("Could not login to gmail account.")
-    sys.exit()
+    sys.exit(1)
 
 try:
     emails = g.inbox().mail(unread=True, subject=SUBJECT_LINE_TRIGGER, prefetch=True)
     print("Read inbox succesfully.")
 except:
     print("Could not read inbox.")
-    sys.exit()
+    sys.exit(1)
 
 if len(emails) < 1:
     print("No special emails found. Exiting")
     g.logout()
-    sys.exit(0)
+    sys.exit(1)
 
 for email in emails:
     print("Special email found.")
@@ -44,7 +44,7 @@ for email in emails:
     match = re.search("\s*(\w[^!.?]*)[!.?]", email.body, flags=re.MULTILINE)
     if not match:
         print("ERROR: could not parse a first sentence from the email. Quitting.")
-        sys.exit()
+        sys.exit(1)
 
     titleString = match.group(1).title() # title method capitalizes the first letter of each word
     titleForPostFile = dateString + '-' + re.sub("\s+", "", titleString) # remove all whitespace
@@ -70,3 +70,4 @@ for email in emails:
         print("Wrote new post to: " + filePath)
 
 g.logout()
+sys.exit(0)

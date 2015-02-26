@@ -2,7 +2,14 @@
 if git diff-index --quiet HEAD --; then
     # no changes
     echo "No local changes in repo... Continuing."
-    python2 email_updater.py $GMAIL_USERNAME $GMAIL_PASSWORD
+
+    python2 email_updater.py $GMAIL_USERNAME $GMAIL_PASSWORD 
+    if [ $? -eq 0 ]; then 
+        echo "python script successful."
+    else
+        echo "python script not successful. Exiting."
+    fi
+
     git add .
     git commit -m "AUTOMATED: Adding new blog post files."
     git push origin gh-pages
