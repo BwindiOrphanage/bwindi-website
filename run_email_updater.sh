@@ -12,6 +12,7 @@ if git diff-index --quiet HEAD --; then
     else
         echo "Commit not successful."
         exit 1
+    fi
 else
     # changes
     echo "Changes present in repo, not continuing."
