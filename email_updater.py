@@ -53,11 +53,11 @@ for email in emails:
 
     restOfMessage = email.body[match.end():].strip() # remove leading and ending whitespace
 
-    newPost = '\n'.join(["----------", 
+    newPost = '\n'.join(["---", 
                          "layout: post",
                          "date: " + str(timestamp),
-                         "title: " + titleString,
-                         "----------",
+                         'title: "' + titleString + '"',
+                         "---",
                          restOfMessage])
 
     print("New blog post created:\n" + newPost)

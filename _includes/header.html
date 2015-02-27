@@ -8,14 +8,14 @@
             </div>
             <div class="ten columns">
                 <div class="row">
-                    <a id="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+                    <a id="site-title" href="{{ site.url }}/">{{ site.title }}</a>
                 </div>
 
                 <div class="row navbar">
                     <ul>
                     {% for page in site.pages %}
                         {% if page.title %}
-                            <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+                        <li><a class="page-link" href="{{ site.url }}/{{ page.title }}">{{ page.title }}</a></li>
                         {% endif %}
                     {% endfor %}
                     </ul>
