@@ -41,14 +41,8 @@ for email in emails:
     timestamp = email.sent_at
     dateString = str(timestamp.date())
 
-    # get the first sentence with a regex pattern
-    # use this as the title.
-    match = re.search("\s*(\w[^!.?]*)[!.?]", bodyText)
-    if not match:
-        print("ERROR: could not parse a first sentence from the email. Quitting.")
-        sys.exit(1)
-
-    titleString = match.group(1).title() # title method capitalizes the first letter of each word
+    # get the first line and use as title
+    titleString = bodyText.split('\n')[0] # title method capitalizes the first letter of each word
     titleForPostFile = dateString + '-' + re.sub("\s+", "", titleString) # remove all whitespace
     print("First sentence (used as title): " + titleString)
     print("Title for post file: " + titleForPostFile)
