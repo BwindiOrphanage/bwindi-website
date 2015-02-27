@@ -36,12 +36,14 @@ if len(emails) < 1:
 
 for email in emails:
     print("Special email found.")
-    print("BODY:\n" + email.body)
+    bodyText = email.body.strip()
+    print("Body text:\n" + bodyText)
     timestamp = email.sent_at
     dateString = str(timestamp.date())
+
     # get the first sentence with a regex pattern
     # use this as the title.
-    match = re.search("\s*(\w[^!.?]*)[!.?]", email.body, flags=re.MULTILINE)
+    match = re.search("\s*(\w[^!.?]*)[!.?]", bodyText)
     if not match:
         print("ERROR: could not parse a first sentence from the email. Quitting.")
         sys.exit(1)
@@ -51,7 +53,7 @@ for email in emails:
     print("First sentence (used as title): " + titleString)
     print("Title for post file: " + titleForPostFile)
 
-    restOfMessage = email.body[match.end():].strip() # remove leading and ending whitespace
+    restOfMessage = bodyText[match.end():].lstrip() # remove leading whitespace if there is any
 
     newPost = '\n'.join(["---", 
                          "layout: post",
