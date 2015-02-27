@@ -42,12 +42,13 @@ for email in emails:
     dateString = str(timestamp.date())
 
     # get the first line and use as title
-    titleString = bodyText.split('\n')[0] # title method capitalizes the first letter of each word
+    bodyTextLines = bodyText.split('\n')
+    titleString = bodyTextLines[0] # title method capitalizes the first letter of each word
     titleForPostFile = dateString + '-' + re.sub("\s+", "", titleString) # remove all whitespace
     print("First sentence (used as title): " + titleString)
     print("Title for post file: " + titleForPostFile)
 
-    restOfMessage = bodyText[match.end():].lstrip() # remove leading whitespace if there is any
+    restOfMessage = ''.join(bodyTextLines[1:]) # all but first line
 
     newPost = '\n'.join(["---", 
                          "layout: post",
