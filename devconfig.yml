@@ -1,0 +1,16 @@
+# Site settings
+title: Bwindi Community Orphanage
+email: 8076bgorman@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+    Bwindi Community Orphans and Vulnerable Centre Project.
+url: "http://localhost:4000" # the base hostname & protocol for your site
+asseturl: "http://localhost:4000/assets"
+github_username: BwindiOrphanage
+twitter_username: bwindicomm
+facebook_pagename: bwindicomm 
+facebook_pageurl: https://www.facebook.com/pages/Bwindi-Community-Orphans-and-Vulnerable-Centre/730778287035274
+
+exclude: ["email_updater.py", "run_email_updater.sh"]
+
+# Build settings
+markdown: kramdown

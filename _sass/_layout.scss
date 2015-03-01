@@ -67,7 +67,7 @@ a.page-link {
 	}
 }
 
-h1 {
+h1, h2 {
 	font-family: 'egyptianNights';
 	color: $theme-dark;
 }
@@ -77,6 +77,14 @@ h1 {
 	background-image: url('#{$asset_url}/images/edited_african_pattern.png'); 
 	background-repeat: repeat-x;
 	background-size: auto 50px;
+}
+
+.dividing-line {
+    height: 0px;
+    width: 100%;
+    border-top: 4px solid $theme-dark-orange;
+    margin-bottom: 8px;
+    font-size: 0;
 }
 
 .img-frame {
