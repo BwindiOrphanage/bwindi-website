@@ -17,7 +17,7 @@ permalink: /support/
 
 <br>
 
-## How can I provide support?
+## How can I provide support
 All donations are very welcome! You can donate ***here***.
 Wondering how much to give? Here's how much it costs us to provide certain things:
 
